@@ -49,7 +49,8 @@ PImage profile_image;
 void setup() {
 
   // initializes gui size and frame rate
-  size(WIDTH, HEIGHT);
+  // size(WIDTH, HEIGHT);
+  size(1500, 800);
   frameRate(60);
 
   // initializes variables as above
@@ -97,9 +98,9 @@ void setup() {
 // always looped through
 void draw() {
 
-  WIDTH = displayWidth;
-  HEIGHT = displayHeight;
-  size(displayWidth, displayHeight);
+  // WIDTH = displayWidth;
+  // HEIGHT = displayHeight;
+  // size(displayWidth, displayHeight);
   // gives background color
   background(#CBFFFB);
     
@@ -212,8 +213,8 @@ void mouseClicked() {
   // where the mouse was clicked, and add it to the node structure
   if (nodes.size() == 0) {
     color col = (Integer) colors.get(int(random(0, 4)));
-    int size = int(random(1, 4));
-    nodes.add( new Node( size, mouseX, mouseY, col, 100, subject_text, content_text, sender_text, profile_image) );
+    int sizeNode = int(random(1, 4));
+    nodes.add( new Node( sizeNode, mouseX, mouseY, col, 100, subject_text, content_text, sender_text, profile_image) );
   }
 
   // otherwise
@@ -290,12 +291,12 @@ void mouseClicked() {
     // creates a new node at the mouse with random color and size
     if (node_clicked == false && ctrl_pressed == false) {  
       color col = (Integer) colors.get(int(random(0, 4)));
-      int size = int(random(1, 4));
+      int sizeNode = int(random(1, 4));
       
-      nodes.add( new Node( size, mouseX, mouseY, col, 100, subject_text, content_text, sender_text, profile_image) );
+      nodes.add( new Node( sizeNode, mouseX, mouseY, col, 100, subject_text, content_text, sender_text, profile_image) );
       //n.intro_clicked_highlight();
       if (shift_pressed == true) {
-        Node n = new Node(size, mouseX, mouseY, col, 100, subject_text, content_text, sender_text, profile_image);
+        Node n = new Node(sizeNode, mouseX, mouseY, col, 100, subject_text, content_text, sender_text, profile_image);
         Node last_clicked = (Node) node_stack.get_first();
         edges.add( new Edge( n.xpos, n.ypos, last_clicked.xpos, last_clicked.ypos, color(#57D358, 200), 2 ) );
       }
